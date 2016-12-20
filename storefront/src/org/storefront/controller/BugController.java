@@ -48,12 +48,36 @@ public class BugController
 	@RequestMapping(value = "/addBug", method = RequestMethod.POST)
 	public String addBugData(final BugData bugData)
 	{
-		System.out.println("Controller提交表单数据:" + bugData);
 		bugFacade.addBug(bugData);
 		return "Success";
 	}
 
+	//删除
+	@RequestMapping(value = "/delete/{title}", method = RequestMethod.GET)
+	public String deleteBug(@PathVariable final String title)
+	{
+		bugFacade.deleteBug(title);
+		return "Success";
+	}
 
+	//编辑bug
+	@RequestMapping(value = "/edit/{title}", method = RequestMethod.GET)
+	public String editBug(@PathVariable final String title, final Model model)
+	{
+		final BugData bugData = bugFacade.getBug(title);
+		model.addAttribute("bugData", bugData);
+		return "EditBug";
+	}
+
+	//编辑bug
+	@RequestMapping(value = "/edit/{title}", method = RequestMethod.GET)
+	public String editBugdata(@PathVariable final String title, final BugData bugData)
+	{
+
+		bugFacade.editBug(title, bugData);
+
+		return "EditSuccess";
+	}
 
 
 

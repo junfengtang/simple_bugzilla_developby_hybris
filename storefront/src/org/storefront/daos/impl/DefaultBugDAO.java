@@ -11,6 +11,8 @@ import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.storefront.daos.BugDAO;
+import org.storefront.data.BugData;
+import org.storefront.enums.Serverity;
 import org.storefront.model.BugModel;
 
 
@@ -38,20 +40,39 @@ public class DefaultBugDAO implements BugDAO
 	 * 详情数据查询
 	 */
 	@Override
-	public List<BugModel> findBugsByTitle(final String title)
+	public BugModel findBugsByTitle(final String title)
 	{
 		final String queryString = "SELECT {p:" + BugModel.PK + "}" + "FROM {" + BugModel._TYPECODE + " AS p} " + "WHERE " + "{p:"
 				+ BugModel.TITLE + "}=?title ";
 		final FlexibleSearchQuery query = new FlexibleSearchQuery(queryString);
 		query.addQueryParameter("title", title);
-		return flexibleSearchService.<BugModel> search(query).getResult();
+		return flexibleSearchService.<BugModel> search(query).getResult().get(0);
 	}
 
 	@Override
 	public void addBug(final BugModel bm)
 	{
-		System.out.println("DAO数据:" + bm);
 		modelService.save(bm);
+	}
+
+	@Override
+	public void deleteBug(final String title)
+	{
+		final BugModel bugModel = findBugsByTitle(title);
+		modelService.remove(bugModel);
+	}
+
+
+	@Override
+	public void editBug(final String title, final BugData bugData)
+	{
+		System.out.println("DAO DATA:" + title);
+		final BugModel bm = findBugsByTitle(title);
+		bm.setTitle(bugData.getTitle());
+		bm.setServerity(Serverity.valueOf(bugData.getServerity()));
+		bm.setBugreslover(bugData.getBugreslover());
+		bm.setDescription(bugData.getDescription());
+		modelService.refresh(bm);
 	}
 
 

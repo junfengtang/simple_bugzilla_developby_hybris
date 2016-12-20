@@ -75,9 +75,27 @@ public class DefaultBugFacade implements BugFacade
 		final BugModel bm = new BugModel();
 		bm.setTitle(bugData.getTitle());
 		bm.setServerity(Serverity.valueOf(bugData.getServerity()));
+		bm.setBugreslover(bugData.getBugreslover());
 		bm.setDescription(bugData.getDescription());
-		System.out.println("Facade数据:" + bm);
 		bugService.addBug(bm);
+	}
+
+	/**
+	 * 删除bug
+	 */
+	@Override
+	public void deleteBug(final String title)
+	{
+		bugService.deleteBug(title);
+	}
+
+	/**
+	 * 编辑
+	 */
+	@Override
+	public void editBug(final String title, final BugData bugData)
+	{
+		bugService.editBug(title, bugData);
 	}
 
 

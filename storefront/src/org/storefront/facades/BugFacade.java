@@ -13,4 +13,8 @@ public interface BugFacade
 
 	public void addBug(BugData bugData);
 
+	public void deleteBug(final String title);
+
+	public void editBug(String title, BugData bugData);
+
 }

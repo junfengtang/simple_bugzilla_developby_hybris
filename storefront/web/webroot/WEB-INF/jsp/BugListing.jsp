@@ -42,8 +42,7 @@
 							</th>
 						</tr>
 					</thead>
-					<tbody>
-					
+					<tbody>			
 						<c:forEach var="bug" items="${ bugs }" >
 						<tr>
 							<td>1</td>
@@ -54,12 +53,11 @@
 							<td>2013-7-8 8:11</td>
 							<td>
 								<a href="./show/${bug.title }">View</a>
-								<a href="add_bug.html">Edit</a>
-								<a href="javascript:void()">Delete</a>
+								<a href="./edit/${bug.title }">Edit</a>
+								<a href="./delete/${bug.title }">Delete</a>
 							</td>
 						</tr>
-						</c:forEach>
-					
+						</c:forEach>				
 					</tbody>
 				</table>
 			</div>

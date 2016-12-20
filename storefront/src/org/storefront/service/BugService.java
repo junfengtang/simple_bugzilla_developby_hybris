@@ -13,6 +13,7 @@ package org.storefront.service;
 
 import java.util.List;
 
+import org.storefront.data.BugData;
 import org.storefront.model.BugModel;
 
 
@@ -26,5 +27,9 @@ public interface BugService
 	BugModel getBugForTitle(String title);
 
 	public void addBug(BugModel bm);
+
+	public void deleteBug(String title);
+
+	public void editBug(String title, BugData bugData);
 
 }

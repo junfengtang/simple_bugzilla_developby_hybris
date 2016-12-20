@@ -13,6 +13,7 @@ package org.storefront.daos;
 
 import java.util.List;
 
+import org.storefront.data.BugData;
 import org.storefront.model.BugModel;
 
 
@@ -23,8 +24,12 @@ public interface BugDAO
 {
 	List<BugModel> findBugs();
 
-	List<BugModel> findBugsByTitle(String title);
+	public BugModel findBugsByTitle(String title);
 
 	public void addBug(BugModel bm);
+
+	public void deleteBug(String title);
+
+	public void editBug(String title, BugData bugData);
 
 }
