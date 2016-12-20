@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<items 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			xsi:noNamespaceSchemaLocation="items.xsd">
+		
+		<enumtypes>
+			<enumtype code="Serverity" autocreate="true" generate="true" dynamic="false">
+				<value code="S1"/>
+				<value code="S2"/>
+				<value code="S3"/>
+				<value code="S4"/>
+			</enumtype>
+		</enumtypes>
+			
+ 		<relations>
+			<relation code="BugCommentRelation" localized="false" generate="true" autocreate="true">
+			       <sourceElement type="Bug" qualifier="Bug" cardinality="one" />
+			       <targetElement type="BugComment" qualifier="BugComment" cardinality="many"/> 
+			 </relation>
+		</relations>
+ 
+	<itemtypes>
+	
+		<!-- BugModel -->
+		<itemtype code="Bug" generate="true" autocreate="true">
+			<deployment table="Bug" typecode="10777" />
+			<attributes>
+			<!-- 	<attribute qualifier="bugId" type="java.lang.Integer" >
+					<persistence type="property"/>
+					<modifiers optional="false" unique="true"/>
+				</attribute> -->
+			
+				<attribute qualifier="title" type="java.lang.String" >
+					<persistence type="property"/>
+					<!-- <modifiers optional="false" unique="true"/> -->
+				</attribute>
+				
+				<attribute qualifier="serverity" type="Serverity">
+					<description>Severity</description>
+					<persistence type="property" />
+				</attribute>
+				
+				<attribute qualifier="bugreslover" type="java.lang.String">
+					<description>Bugreslover</description>
+					<persistence type="property" />
+				</attribute>	
+				
+				<attribute qualifier="description" type="java.lang.String">
+					<description>Description</description>
+					<persistence type="property" />
+				</attribute>		
+			
+			</attributes>
+		</itemtype>
+		
+		<!-- CommentModel -->
+		<itemtype code="BugComment" generate="true" autocreate="true">
+			<deployment table="Comment" typecode="10778" />
+			<attributes>
+				
+				<attribute qualifier="time" type="java.lang.String" >
+					<persistence type="property"/>
+				</attribute>
+				
+				<attribute qualifier="commentPeople" type="java.lang.String">
+					<description>CommentPeople</description>
+					<persistence type="property" />
+				</attribute>
+				
+				<attribute qualifier="commentDesc" type="java.lang.String">
+					<description>CommentDesc</description>
+					<persistence type="property" />
+				</attribute>
+				
+			</attributes>
+		</itemtype>
+
+	</itemtypes>
+</items>

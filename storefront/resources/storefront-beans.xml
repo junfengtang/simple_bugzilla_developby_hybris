@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="beans.xsd">
+		
+		<bean class="org.storefront.data.BugData">
+			<description>Data object representing a Bug</description>
+			<property name="title" type="String"/>
+			<property name="serverity" type="String"/>
+			<property name="bugreslover" type="String"/>
+			<property name="description" type="String"/>
+		</bean>
+		
+		<bean class="org.storefront.data.BugCommentData">
+			<property name="time" type="String"/>
+			<property name="commentPeople" type="String"/>
+			<property name="commentDesc" type="String"/>
+		</bean>
+		
+		
+
+
+</beans>
