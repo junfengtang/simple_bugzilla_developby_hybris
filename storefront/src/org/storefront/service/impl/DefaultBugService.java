@@ -47,6 +47,7 @@ public class DefaultBugService implements BugService
 	@Override
 	public void editBug(final String title, final BugData bugData)
 	{
+		System.out.println("Service data" + bugData);
 		bugDAO.editBug(title, bugData);
 	}
 

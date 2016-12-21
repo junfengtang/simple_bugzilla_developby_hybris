@@ -62,17 +62,18 @@ public class DefaultBugDAO implements BugDAO
 		modelService.remove(bugModel);
 	}
 
-
 	@Override
 	public void editBug(final String title, final BugData bugData)
 	{
 		System.out.println("DAO DATA:" + title);
+		System.out.println("DAO data  :" + bugData.getDescription());
 		final BugModel bm = findBugsByTitle(title);
 		bm.setTitle(bugData.getTitle());
 		bm.setServerity(Serverity.valueOf(bugData.getServerity()));
 		bm.setBugreslover(bugData.getBugreslover());
 		bm.setDescription(bugData.getDescription());
-		modelService.refresh(bm);
+		//		modelService.refresh(bm);
+		modelService.save(bm);
 	}
 
 

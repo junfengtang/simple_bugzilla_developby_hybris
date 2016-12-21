@@ -15,7 +15,7 @@
 				<div class="error">Error message</div>
 			</div>
 			<div id="bug_form">
-			<form action="./editBug" method="post">
+			<form action="/storefront/editBug/${ bugData.title }" method="post">
 				<p>
 					<label>Title:</label><br />
 					<input name="title" value="${ bugData.title }"/>

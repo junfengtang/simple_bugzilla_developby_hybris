@@ -95,6 +95,7 @@ public class DefaultBugFacade implements BugFacade
 	@Override
 	public void editBug(final String title, final BugData bugData)
 	{
+		System.out.println("Facade data" + bugData);
 		bugService.editBug(title, bugData);
 	}
 

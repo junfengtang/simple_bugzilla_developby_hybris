@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at 2016-12-20 10:19:08                         ---
+ * --- Generated at 2016-12-21 9:35:06                          ---
  * ----------------------------------------------------------------
  */
 package org.storefront.jalo;

@@ -1,4 +1,3 @@
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -12,6 +11,6 @@
 	
 	<body>
 		<h1>提交成功</h1>
-		<a href="./bugs"></a>
+		<a href="/storefront/bugs">返回</a>
 	</body>
 </html>

@@ -70,13 +70,12 @@ public class BugController
 	}
 
 	//编辑bug
-	@RequestMapping(value = "/edit/{title}", method = RequestMethod.GET)
+	@RequestMapping(value = "/editBug/{title}", method = RequestMethod.POST)
 	public String editBugdata(@PathVariable final String title, final BugData bugData)
 	{
-
 		bugFacade.editBug(title, bugData);
-
-		return "EditSuccess";
+		System.out.println("Controller data" + bugData);
+		return "Success";
 	}
 
 
